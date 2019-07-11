@@ -1,0 +1,53 @@
+{
+  "name": "contextual-element-identifier",
+  "version": "0.0.0",
+  "description": "Library of context-based element identification and search",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "lint": "eslint src/**/*.ts --fix",
+    "build": "rm -rf ./dist && npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKIRA-MIYAKE/contextual-element-identifier.git"
+  },
+  "keywords": [
+    "xpath",
+    "dom"
+  ],
+  "author": "AKIRA-MIYAKE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AKIRA-MIYAKE/contextual-element-identifier/issues"
+  },
+  "homepage": "https://github.com/AKIRA-MIYAKE/contextual-element-identifier#readme",
+  "dependencies": {
+    "lodash": "^4.17.14",
+    "xpather": "^0.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.15",
+    "@types/lodash": "^4.14.134",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.2"
+  }
+}

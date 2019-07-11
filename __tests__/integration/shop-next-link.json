@@ -1,0 +1,173 @@
+{
+  "absolute": [
+    {
+      "nodeName": "html",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [],
+      "roles": [],
+      "depth": 0,
+      "uniqueKey": "index"
+    },
+    {
+      "nodeName": "body",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [
+        "goto-here"
+      ],
+      "roles": [],
+      "depth": 1,
+      "uniqueKey": "className"
+    },
+    {
+      "nodeName": "section",
+      "index": 0,
+      "hasSiblings": true,
+      "classNames": [
+        "ftco-section",
+        "bg-light"
+      ],
+      "roles": [],
+      "depth": 2,
+      "uniqueKey": "className"
+    },
+    {
+      "nodeName": "div",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [
+        "container"
+      ],
+      "roles": [],
+      "depth": 3,
+      "uniqueKey": "className"
+    },
+    {
+      "nodeName": "div",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [
+        "row"
+      ],
+      "roles": [],
+      "depth": 4,
+      "uniqueKey": "index"
+    },
+    {
+      "nodeName": "div",
+      "index": 0,
+      "hasSiblings": true,
+      "classNames": [
+        "col-md-8",
+        "col-lg-10",
+        "order-md-last"
+      ],
+      "roles": [],
+      "depth": 5,
+      "uniqueKey": "className"
+    },
+    {
+      "nodeName": "div",
+      "index": 1,
+      "hasSiblings": true,
+      "classNames": [
+        "row",
+        "mt-5"
+      ],
+      "roles": [],
+      "depth": 6,
+      "uniqueKey": "className"
+    },
+    {
+      "nodeName": "div",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [
+        "col",
+        "text-center"
+      ],
+      "roles": [],
+      "depth": 7,
+      "uniqueKey": "className"
+    },
+    {
+      "nodeName": "div",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [
+        "block-27"
+      ],
+      "roles": [],
+      "depth": 8,
+      "uniqueKey": "className"
+    },
+    {
+      "nodeName": "ul",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [],
+      "roles": [],
+      "depth": 9,
+      "uniqueKey": "index"
+    },
+    {
+      "nodeName": "li",
+      "index": 6,
+      "hasSiblings": true,
+      "classNames": [],
+      "roles": [],
+      "depth": 10,
+      "uniqueKey": "index"
+    },
+    {
+      "nodeName": "a",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [],
+      "roles": [],
+      "depth": 11,
+      "uniqueKey": "index"
+    }
+  ],
+  "unique": [
+    {
+      "nodeName": "div",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [
+        "block-27"
+      ],
+      "roles": [],
+      "depth": 8,
+      "uniqueKey": "className"
+    },
+    {
+      "nodeName": "ul",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [],
+      "roles": [],
+      "depth": 9,
+      "uniqueKey": "index"
+    },
+    {
+      "nodeName": "li",
+      "index": 6,
+      "hasSiblings": true,
+      "classNames": [],
+      "roles": [],
+      "depth": 10,
+      "uniqueKey": "index"
+    },
+    {
+      "nodeName": "a",
+      "index": 0,
+      "hasSiblings": false,
+      "classNames": [],
+      "roles": [],
+      "depth": 11,
+      "uniqueKey": "index"
+    }
+  ]
+}
