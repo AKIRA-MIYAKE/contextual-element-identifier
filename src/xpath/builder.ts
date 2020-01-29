@@ -95,7 +95,9 @@ export const buildClassNameCondition = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): any => {
   if (
-    (!options.ignoreUniqueKey && fragment.uniqueKey === UniqueKey.ClassName) ||
+    (!options.ignoreUniqueKey &&
+      fragment.uniqueKey === UniqueKey.ClassName &&
+      fragment.classNames.length > 0) ||
     (options.className && fragment.classNames.length > 0)
   ) {
     const arr = fragment.classNames.map(cn => With.attribute('class', cn));
@@ -111,7 +113,9 @@ export const buildRoleCondition = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): any => {
   if (
-    (!options.ignoreUniqueKey && fragment.uniqueKey === UniqueKey.Role) ||
+    (!options.ignoreUniqueKey &&
+      fragment.uniqueKey === UniqueKey.Role &&
+      fragment.roles.length > 0) ||
     (options.role && fragment.roles.length > 0)
   ) {
     const arr = fragment.roles.map(r => With.attribute('role', r));

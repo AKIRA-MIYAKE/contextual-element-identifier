@@ -1,6 +1,6 @@
 {
   "name": "contextual-element-identifier",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Library of context-based element identification and search",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
