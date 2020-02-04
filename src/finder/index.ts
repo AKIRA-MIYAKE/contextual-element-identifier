@@ -11,6 +11,7 @@ import {
 
 export const getElement = (
   identifier: ElementIdentifier,
+  ignoreClassNames: string[] = [],
   document: Document = window.document
 ): Element | undefined => {
   const last = _.last(identifier.absolute);
@@ -21,7 +22,10 @@ export const getElement = (
   const xpath = toAbsoluteXPath(identifier);
   const result = evaluateXPath(xpath, document, document);
 
-  if (result.length === 1 && isMatchedAttributes(result[0], last)) {
+  if (
+    result.length === 1 &&
+    isMatchedAttributes(result[0], last, ignoreClassNames)
+  ) {
     return result[0];
   } else {
     return undefined;
@@ -30,6 +34,7 @@ export const getElement = (
 
 export const findElements = (
   identifier: ElementIdentifier,
+  ignoreClassNames: string[] = [],
   document: Document = window.document
 ): Element[] => {
   const last = _.last(identifier.absolute);
@@ -37,14 +42,16 @@ export const findElements = (
     return [];
   }
 
-  const strictElement = getElement(identifier, document);
+  const strictElement = getElement(identifier, ignoreClassNames, document);
   if (strictElement) {
     return [strictElement];
   }
 
   const uniqueXPath = toUniqueXPath(identifier);
   const uniqueResult = evaluateXPath(uniqueXPath, document, document);
-  const uniqueMatched = uniqueResult.filter(e => isMatchedAttributes(e, last));
+  const uniqueMatched = uniqueResult.filter(e =>
+    isMatchedAttributes(e, last, ignoreClassNames)
+  );
   if (uniqueMatched.length === 1) {
     return uniqueMatched;
   }
@@ -56,7 +63,9 @@ export const findElements = (
     fragments = [fragment, ...fragments];
     const xpath = greedyXPathFromFragments(fragments);
     const elems = evaluateXPath(xpath, document, document);
-    const matched = elems.filter(e => isMatchedAttributes(e, last));
+    const matched = elems.filter(e =>
+      isMatchedAttributes(e, last, ignoreClassNames)
+    );
     if (matched.length === 1) {
       elements = matched;
       break;
@@ -106,6 +115,7 @@ export const findElementsWithPredicate = (
 
 export const getSiblingsElements = (
   identifier: ElementIdentifier | ElementIdentifier[],
+  ignoreClassNames: string[] = [],
   document: Document = window.document
 ): Element[] => {
   const identifiers = !Array.isArray(identifier) ? [identifier] : identifier;
@@ -121,12 +131,13 @@ export const getSiblingsElements = (
   const elements = evaluateXPath(xpath, document, document);
 
   return elements.filter(e => {
-    return lasts.some(f => isMatchedAttributes(e, f));
+    return lasts.some(f => isMatchedAttributes(e, f, ignoreClassNames));
   });
 };
 
 export const getMultipleSiblingsElements = (
   identifiers: ElementIdentifier[][],
+  ignoreClassNames: string[] = [],
   document: Document = window.document
 ): (Element | undefined)[][] => {
   if (identifiers.length === 0) {
@@ -134,7 +145,11 @@ export const getMultipleSiblingsElements = (
   }
 
   if (identifiers.length === 1) {
-    const result = getSiblingsElements(identifiers[0], document);
+    const result = getSiblingsElements(
+      identifiers[0],
+      ignoreClassNames,
+      document
+    );
     return [result];
   }
 
@@ -142,7 +157,7 @@ export const getMultipleSiblingsElements = (
   const ancestorElements = evaluateXPath(ancestorXPath, document, document);
 
   const elementsArray = identifiers.map(identifier => {
-    return getSiblingsElements(identifier, document);
+    return getSiblingsElements(identifier, ignoreClassNames, document);
   });
 
   const maxLength = elementsArray.reduce((acc, current) => {
@@ -167,11 +182,12 @@ export const getMultipleSiblingsElements = (
 
 const isMatchedAttributes = (
   element: Element,
-  fragment: ElementFragment
+  fragment: ElementFragment,
+  ignoreClassNames: string[]
 ): boolean => {
   return (
     isMatchedId(element, fragment) &&
-    isMatchedClassNames(element, fragment) &&
+    isMatchedClassNames(element, fragment, ignoreClassNames) &&
     isMatchedRoles(element, fragment)
   );
 };
@@ -183,9 +199,13 @@ const isMatchedId = (element: Element, fragment: ElementFragment): boolean => {
 
 const isMatchedClassNames = (
   element: Element,
-  fragment: ElementFragment
+  fragment: ElementFragment,
+  ignoreClassNames: string[]
 ): boolean => {
-  const classNames = Array.from(element.classList);
+  const classNames = Array.from(element.classList).filter(
+    cn => !ignoreClassNames.includes(cn)
+  );
+
   if (fragment.classNames.length === 0 && classNames.length === 0) {
     return true;
   }

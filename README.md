@@ -35,6 +35,7 @@ export const identifierFromElement = (
 ```
 export const getElement = (
   identifier: ElementIdentifier,
+  ignoreClassNames: string[] = [],
   document: Document = window.document
 ): Element | undefined
 ```
@@ -46,6 +47,7 @@ Gets an element that exactly matches the `ElementIdentifier`. If it does not exi
 ```
 export const findElements = (
   identifier: ElementIdentifier,
+  ignoreClassNames: string[] = [],
   document: Document = window.document
 ): Element[]
 ```
@@ -59,7 +61,7 @@ export const findElementsWithPredicate = (
   identifier: ElementIdentifier,
   predicate: (element: Element) => boolean,
   document: Document = window.document
-): Element[] 
+): Element[]
 ```
 
 The basic behavior is the same as for `findElements()`.  
@@ -72,6 +74,7 @@ You can filter target elements by predicate.
 ```
 export const getSiblingsElements = (
   identifier: ElementIdentifier | ElementIdentifier[],
+  ignoreClassNames: string[] = [],
   document: Document = window.document
 ): Element[]
 ```
@@ -85,6 +88,7 @@ If multiple ElementIdentifiers are given, behavior will be to exclude different 
 ```
 export const getMultipleSiblingsElements = (
   identifiers: ElementIdentifier[][],
+  ignoreClassNames: string[] = [],
   document: Document = window.document
 ): (Element | undefined)[][]
 ```
