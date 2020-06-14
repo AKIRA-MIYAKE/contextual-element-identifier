@@ -1,6 +1,6 @@
 {
   "name": "contextual-element-identifier",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Library of context-based element identification and search",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -29,25 +29,26 @@
   },
   "homepage": "https://github.com/AKIRA-MIYAKE/contextual-element-identifier#readme",
   "dependencies": {
-    "lodash": "^4.17.14",
-    "xpather": "^0.1.0"
+    "lodash": "^4.17.15",
+    "xpather": "^0.1.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-typescript": "^7.3.3",
-    "@types/jest": "^24.0.15",
-    "@types/lodash": "^4.14.134",
-    "@typescript-eslint/eslint-plugin": "^1.11.0",
-    "@typescript-eslint/parser": "^1.11.0",
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
+    "@types/jest": "^24.9.1",
+    "@types/lodash": "^4.14.155",
+    "@types/node": "^14.0.13",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
     "eslint": "^5.16.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "jest": "^24.8.0",
-    "prettier": "^1.18.2",
-    "typescript": "^3.5.2"
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "typescript": "^3.9.5"
   }
 }
