@@ -12,6 +12,17 @@ This library aims to uniquely identify HTML elements on web pages and web applic
 The library generates an xpath based on the identifier and gets an element.  
 For example, even if the target page changes while scraping, you can get the target element.  
 
+## Import
+
+```
+import * as CEI from 'contextual-element-identifier';
+```
+
+or
+
+```
+const CEI = require('contextual-element-identifier');
+```
 
 ## `ElementIdentifier` Creation
 
