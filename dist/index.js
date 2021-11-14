@@ -16,40 +16,10 @@ var _exportNames = {
   getMultipleSiblingsElements: true,
   evaluateXPath: true
 };
-Object.defineProperty(exports, "identifierFromElement", {
+Object.defineProperty(exports, "evaluateXPath", {
   enumerable: true,
   get: function get() {
-    return _creator.identifierFromElement;
-  }
-});
-Object.defineProperty(exports, "toAbsoluteXPath", {
-  enumerable: true,
-  get: function get() {
-    return _xpath.toAbsoluteXPath;
-  }
-});
-Object.defineProperty(exports, "toUniqueXPath", {
-  enumerable: true,
-  get: function get() {
-    return _xpath.toUniqueXPath;
-  }
-});
-Object.defineProperty(exports, "toChromeLikeXPath", {
-  enumerable: true,
-  get: function get() {
-    return _xpath.toChromeLikeXPath;
-  }
-});
-Object.defineProperty(exports, "toSiblingsXPath", {
-  enumerable: true,
-  get: function get() {
-    return _xpath.toSiblingsXPath;
-  }
-});
-Object.defineProperty(exports, "getElement", {
-  enumerable: true,
-  get: function get() {
-    return _finder.getElement;
+    return _finder.evaluateXPath;
   }
 });
 Object.defineProperty(exports, "findElements", {
@@ -64,10 +34,10 @@ Object.defineProperty(exports, "findElementsWithPredicate", {
     return _finder.findElementsWithPredicate;
   }
 });
-Object.defineProperty(exports, "getSiblingsElements", {
+Object.defineProperty(exports, "getElement", {
   enumerable: true,
   get: function get() {
-    return _finder.getSiblingsElements;
+    return _finder.getElement;
   }
 });
 Object.defineProperty(exports, "getMultipleSiblingsElements", {
@@ -76,10 +46,40 @@ Object.defineProperty(exports, "getMultipleSiblingsElements", {
     return _finder.getMultipleSiblingsElements;
   }
 });
-Object.defineProperty(exports, "evaluateXPath", {
+Object.defineProperty(exports, "getSiblingsElements", {
   enumerable: true,
   get: function get() {
-    return _finder.evaluateXPath;
+    return _finder.getSiblingsElements;
+  }
+});
+Object.defineProperty(exports, "identifierFromElement", {
+  enumerable: true,
+  get: function get() {
+    return _creator.identifierFromElement;
+  }
+});
+Object.defineProperty(exports, "toAbsoluteXPath", {
+  enumerable: true,
+  get: function get() {
+    return _xpath.toAbsoluteXPath;
+  }
+});
+Object.defineProperty(exports, "toChromeLikeXPath", {
+  enumerable: true,
+  get: function get() {
+    return _xpath.toChromeLikeXPath;
+  }
+});
+Object.defineProperty(exports, "toSiblingsXPath", {
+  enumerable: true,
+  get: function get() {
+    return _xpath.toSiblingsXPath;
+  }
+});
+Object.defineProperty(exports, "toUniqueXPath", {
+  enumerable: true,
+  get: function get() {
+    return _xpath.toUniqueXPath;
   }
 });
 

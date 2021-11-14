@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import {
   takeMinHasId,
 } from '../../src/identifier/converter';

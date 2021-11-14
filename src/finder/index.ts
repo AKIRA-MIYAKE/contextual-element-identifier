@@ -49,7 +49,7 @@ export const findElements = (
 
   const uniqueXPath = toUniqueXPath(identifier);
   const uniqueResult = evaluateXPath(uniqueXPath, document, document);
-  const uniqueMatched = uniqueResult.filter(e =>
+  const uniqueMatched = uniqueResult.filter((e) =>
     isMatchedAttributes(e, last, ignoreClassNames)
   );
   if (uniqueMatched.length === 1) {
@@ -63,7 +63,7 @@ export const findElements = (
     fragments = [fragment, ...fragments];
     const xpath = greedyXPathFromFragments(fragments);
     const elems = evaluateXPath(xpath, document, document);
-    const matched = elems.filter(e =>
+    const matched = elems.filter((e) =>
       isMatchedAttributes(e, last, ignoreClassNames)
     );
     if (matched.length === 1) {
@@ -120,8 +120,8 @@ export const getSiblingsElements = (
 ): Element[] => {
   const identifiers = !Array.isArray(identifier) ? [identifier] : identifier;
   const lasts = identifiers
-    .map(i => _.last(i.absolute))
-    .filter(f => typeof f !== 'undefined') as ElementFragment[];
+    .map((i) => _.last(i.absolute))
+    .filter((f) => typeof f !== 'undefined') as ElementFragment[];
 
   if (lasts.length === 0) {
     return [];
@@ -130,8 +130,8 @@ export const getSiblingsElements = (
   const xpath = toSiblingsXPath(identifier);
   const elements = evaluateXPath(xpath, document, document);
 
-  return elements.filter(e => {
-    return lasts.some(f => isMatchedAttributes(e, f, ignoreClassNames));
+  return elements.filter((e) => {
+    return lasts.some((f) => isMatchedAttributes(e, f, ignoreClassNames));
   });
 };
 
@@ -156,7 +156,7 @@ export const getMultipleSiblingsElements = (
   const ancestorXPath = toAncestorXPath(identifiers);
   const ancestorElements = evaluateXPath(ancestorXPath, document, document);
 
-  const elementsArray = identifiers.map(identifier => {
+  const elementsArray = identifiers.map((identifier) => {
     return getSiblingsElements(identifier, ignoreClassNames, document);
   });
 
@@ -165,10 +165,10 @@ export const getMultipleSiblingsElements = (
   }, 0);
 
   if (ancestorElements.length === maxLength) {
-    const grouped = ancestorElements.map(ancestor => {
-      return elementsArray.map(elements => {
+    const grouped = ancestorElements.map((ancestor) => {
+      return elementsArray.map((elements) => {
         return elements.find(
-          e =>
+          (e) =>
             // tslint:disable-next-line
             ancestor.compareDocumentPosition(e) & 16 //Node.DOCUMENT_POSITION_CONTAINED_BY
         );
@@ -203,7 +203,7 @@ const isMatchedClassNames = (
   ignoreClassNames: string[]
 ): boolean => {
   const classNames = Array.from(element.classList).filter(
-    cn => !ignoreClassNames.includes(cn)
+    (cn) => !ignoreClassNames.includes(cn)
   );
 
   if (fragment.classNames.length === 0 && classNames.length === 0) {

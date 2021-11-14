@@ -25,7 +25,7 @@ export const siblingsFragmentsFromIdentifiers = (
     return siblingsFragmentsFromFragments(head.absolute);
   } else if (
     tail.every(
-      identifier => identifier.absolute.length === head.absolute.length
+      (identifier) => identifier.absolute.length === head.absolute.length
     )
   ) {
     return siblingsFragmentsFromSameDepthIdentifiers(head, tail);
@@ -49,12 +49,12 @@ export const siblingsFragmentsFromFragments = (
     case 'td': {
       const left = fragments
         .slice(0, index)
-        .map(f => (f.nodeName === 'tr' ? { ...f, index: -1 } : f));
+        .map((f) => (f.nodeName === 'tr' ? { ...f, index: -1 } : f));
       const right = fragments.slice(index);
       return [...left, ...right];
     }
     default:
-      return fragments.map(f => (f.hasSiblings ? { ...f, index: -1 } : f));
+      return fragments.map((f) => (f.hasSiblings ? { ...f, index: -1 } : f));
   }
 };
 
@@ -97,7 +97,7 @@ export const ancestorFragmetnsFromIdentifiers = (
   }
 
   const intersected = identifiers
-    .map(i => i.absolute)
+    .map((i) => i.absolute)
     .reduce((acc, current) => {
       return intersectionLeft(acc, current);
     });
@@ -189,7 +189,7 @@ export const findRepeatingLastIndexAndNodeName = (
   fragments: ElementFragment[]
 ): { index: number; nodeName: string | undefined } => {
   const repeatingNodeName = ['li', 'dt', 'dd', 'tr', 'th', 'td'];
-  const index = _.findLastIndex(fragments, f =>
+  const index = _.findLastIndex(fragments, (f) =>
     repeatingNodeName.includes(f.nodeName)
   );
 
