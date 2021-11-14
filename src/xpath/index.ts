@@ -9,6 +9,7 @@ import {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const xpather = require('xpather');
 const { x } = xpather;
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const Xpath = require('xpather/built/xpath').Xpath;
 
 export const toAbsoluteXPath = (identifier: ElementIdentifier): string => {
@@ -53,7 +54,7 @@ export const toSiblingsXPath = (
 };
 
 export const toAncestorXPath = (identifiers: ElementIdentifier[][]): string => {
-  const firstIdentifiers = identifiers.map(i => i[0]);
+  const firstIdentifiers = identifiers.map((i) => i[0]);
   const fragments = ancestorFragmetnsFromIdentifiers(firstIdentifiers);
   return siblingsXPathFromFragments(fragments);
 };

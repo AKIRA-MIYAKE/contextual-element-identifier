@@ -83,7 +83,7 @@ export const extractClassNames = (
   ignoreClassNames: string[]
 ): string[] => {
   const classNames = Array.from(element.classList).filter(
-    cn => !ignoreClassNames.includes(cn)
+    (cn) => !ignoreClassNames.includes(cn)
   );
   return _.uniq(classNames);
 };
@@ -138,6 +138,6 @@ export const getSameNodeNameSiblings = (element: Element): Element[] => {
   }
 
   return Array.from(parentElement.children).filter(
-    ce => ce.nodeName === element.nodeName
+    (ce) => ce.nodeName === element.nodeName
   );
 };

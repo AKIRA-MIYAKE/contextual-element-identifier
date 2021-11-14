@@ -2,9 +2,9 @@ import _ from 'lodash';
 
 import { ElementFragment, UniqueKey } from '../identifier/interfaces';
 
-// tslint:disable-next-line
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const With = require('xpather').With;
-// tslint:disable-next-line
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const Condition = require('xpather/built/condition').Condition;
 
 export interface XPathOptions {
@@ -100,7 +100,7 @@ export const buildClassNameCondition = (
       fragment.classNames.length > 0) ||
     (options.className && fragment.classNames.length > 0)
   ) {
-    const arr = fragment.classNames.map(cn => With.attribute('class', cn));
+    const arr = fragment.classNames.map((cn) => With.attribute('class', cn));
     return options.strict ? joinConditionsByAnd(arr) : joinConditionsByOr(arr);
   } else {
     return undefined;
@@ -118,7 +118,7 @@ export const buildRoleCondition = (
       fragment.roles.length > 0) ||
     (options.role && fragment.roles.length > 0)
   ) {
-    const arr = fragment.roles.map(r => With.attribute('role', r));
+    const arr = fragment.roles.map((r) => With.attribute('role', r));
     return options.strict ? joinConditionsByAnd(arr) : joinConditionsByOr(arr);
   } else {
     return undefined;
